@@ -11,7 +11,7 @@ defmodule ExPwned.Parser do
       {:ok, %HTTPoison.Response{body: body, headers: headers, status_code: 200}} ->
         {:ok, parse_success_response(body), process_headers(headers)}
 
-      {:ok, %HTTPoison.Response{body: body, headers: headers, status_code: 404}} ->
+      {:ok, %HTTPoison.Response{body: _body, headers: headers, status_code: 404}} ->
         {:ok, %{msg: "no breach was found for given input"}, process_headers(headers)}
 
       {:ok, %HTTPoison.Response{body: _, headers: _, status_code: 400}} ->

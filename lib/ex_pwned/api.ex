@@ -9,7 +9,7 @@ defmodule ExPwned.Api do
       import ExPwned.Utils
 
       def build_url(path_arg, query_params \\ %{}) do
-        "#{base_url}/#{path_arg}?#{URI.encode_query(query_params)}"
+        "#{base_url()}/#{path_arg}?#{URI.encode_query(query_params)}"
       end
 
       def do_get(path_arg), do: do_get(path_arg, %{})
@@ -17,7 +17,7 @@ defmodule ExPwned.Api do
       def do_get(path_arg, query_params) do
         path_arg
         |> build_url(query_params)
-        |> HTTPoison.get(headers)
+        |> HTTPoison.get(headers())
         |> Parser.parse
       end
     end

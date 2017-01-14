@@ -3,11 +3,11 @@ defmodule ExPwned.Mixfile do
 
   def project do
     [app: :ex_pwned,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      description: "Elixir client for haveibeenpwned.com",
      source_url: "https://github.com/techgaun/ex_pwned",
-     package: package,
+     package: package(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      docs: [extras: ["README.md"]],

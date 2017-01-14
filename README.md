@@ -1,5 +1,7 @@
 # ExPwned
 
+[![Hex version](https://img.shields.io/hexpm/v/ex_pwned.svg "Hex version")](https://hex.pm/packages/ex_pwned) ![Hex downloads](https://img.shields.io/hexpm/dt/ex_pwned.svg "Hex downloads")
+
 > Elixir client for haveibeenpwned.com
 
 ## Installation

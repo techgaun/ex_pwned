@@ -2,6 +2,10 @@ defmodule ExPwned.PasswordsTest do
   use ExUnit.Case
   alias ExPwned.Passwords
 
+  test "Check known breached password" do
+    assert Passwords.breached?("123456")
+  end
+
   test "handle_success/2 with breached passwords" do
     body = "00387259BECFC8B3CB0D27EBDDC2AC93758:1\r\n00BA633D4B050924FA8228526CE0F561B38:3"
     assert 1 === Passwords.handle_success(body, "00387259BECFC8B3CB0D27EBDDC2AC93758")

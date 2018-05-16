@@ -1,8 +1,11 @@
 defmodule ExPwned.Passwords do
   @moduledoc """
-    Module to interact with hibp API to retrive breached passwords data.
+    Module to interact with HIBP API to retrive breached passwords data.
   """
 
+  @doc """
+    Returns true|false, or {:error, "reason for error, probably HTTP/Network related"}
+  """
   def breached?(password) do
     case password_breach_count(password) do
       0 -> false
@@ -12,6 +15,10 @@ defmodule ExPwned.Passwords do
     end
   end
 
+  @doc """
+    Returns an integer representing the number of times this password has been
+    seen in a breach. Can be zero, representing no breaches.
+  """
   def password_breach_count(password) do
     {partial_hash, hash_suffix} =
       password
@@ -54,5 +61,4 @@ defmodule ExPwned.Passwords do
   defp hash_sha1(word) do
     :crypto.hash(:sha, word) |> Base.encode16
   end
-
 end

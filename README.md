@@ -44,6 +44,17 @@ iex> ExPwned.breached?("abc@example.com")
 true
 ```
 
+#### Check if a password is breached, and how many times
+```elixir
+# True/False Check
+iex> ExPwned.password_breached?("password123")
+true
+
+# Returns # of times password was seen in a breach. Zero if none.
+iex> ExPwned.password_breach_count("password123")
+5032
+```
+
 #### Check the breaches for an account
 
 ```elixir

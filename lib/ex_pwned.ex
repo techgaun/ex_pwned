@@ -44,7 +44,7 @@ defmodule ExPwned do
 
       iex> ExPwned.password_breach_count("123456")
       20760336
-      iex> ExPwned.password_breach_count?("correcthorsebatterystaplexkcdrules")
+      iex> ExPwned.password_breach_count("correcthorsebatterystaplexkcdrules")
       0
   """
   def password_breach_count(password) do

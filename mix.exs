@@ -3,7 +3,7 @@ defmodule ExPwned.Mixfile do
 
   def project do
     [app: :ex_pwned,
-     version: "0.1.1",
+     version: "0.1.2",
      elixir: "~> 1.3",
      description: "Elixir client for haveibeenpwned.com",
      source_url: "https://github.com/techgaun/ex_pwned",

@@ -23,9 +23,9 @@ defmodule ExPwned do
   end
 
   @doc """
-    Returns true if this password has been seen in a data breach on Have I Been Pwned
+  Returns true if this password has been seen in a data breach on Have I Been Pwned
 
-    ## Example
+  ## Example
 
       iex> ExPwned.password_breached?("123456")
       true
@@ -37,10 +37,10 @@ defmodule ExPwned do
   end
 
   @doc """
-    Returns the number of times a password has been seen in a data breach. It will
-    return zero if the password has not yet been found in a breach.
+  Returns the number of times a password has been seen in a data breach. It will
+  return zero if the password has not yet been found in a breach.
 
-    ## Example
+  ## Example
 
       iex> ExPwned.password_breach_count("123456")
       20760336

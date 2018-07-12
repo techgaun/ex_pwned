@@ -13,12 +13,15 @@ defmodule ExPwned.Api do
       end
 
       def do_get(path_arg), do: do_get(path_arg, %{})
-      def do_get(path_arg, query_params) when is_list(query_params), do: do_get(path_arg, Enum.into(query_params, %{}))
+
+      def do_get(path_arg, query_params) when is_list(query_params),
+        do: do_get(path_arg, Enum.into(query_params, %{}))
+
       def do_get(path_arg, query_params) do
         path_arg
         |> build_url(query_params)
         |> HTTPoison.get(headers())
-        |> Parser.parse
+        |> Parser.parse()
       end
     end
   end

@@ -31,5 +31,4 @@ defmodule ExPwned.PasswordsTest do
     assert ["00387259BECFC8B3CB0D27EBDDC2AC93758", "1"] in result
     assert ["00BA633D4B050924FA8228526CE0F561B38", "3"] in result
   end
-
 end

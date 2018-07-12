@@ -2,16 +2,18 @@ defmodule ExPwned.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ex_pwned,
-     version: "0.1.2",
-     elixir: "~> 1.3",
-     description: "Elixir client for haveibeenpwned.com",
-     source_url: "https://github.com/techgaun/ex_pwned",
-     package: package(),
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     docs: [extras: ["README.md"]],
-     deps: deps()]
+    [
+      app: :ex_pwned,
+      version: "0.1.2",
+      elixir: "~> 1.3",
+      description: "Elixir client for haveibeenpwned.com",
+      source_url: "https://github.com/techgaun/ex_pwned",
+      package: package(),
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      docs: [extras: ["README.md"]],
+      deps: deps()
+    ]
   end
 
   def application do

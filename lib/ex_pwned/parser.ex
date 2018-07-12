@@ -25,15 +25,18 @@ defmodule ExPwned.Parser do
 
       {:error, %HTTPoison.Error{id: _, reason: reason}} ->
         {:error, reason, -1}
+
       _ ->
         response
     end
   end
-  defp parse_success_response(body), do: body |> Poison.decode!
+
+  defp parse_success_response(body), do: body |> Poison.decode!()
 
   defp process_headers(headers) when is_list(headers) and length(headers) > 0 do
     {_, retry_after} = List.keyfind(headers, "Retry-After", 0, {nil, "0"})
     [retry_after: String.to_integer(retry_after)]
   end
+
   defp process_headers(_), do: [retry_after: 0]
 end

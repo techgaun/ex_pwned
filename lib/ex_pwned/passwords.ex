@@ -32,8 +32,10 @@ defmodule ExPwned.Passwords do
     case HTTPoison.get("https://api.pwnedpasswords.com/range/" <> partial_hash) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         handle_success(body, hash_suffix)
+
       {:ok, %HTTPoison.Response{body: body, status_code: 429}} ->
         {:error, body}
+
       other ->
         {:error, other}
     end
@@ -43,7 +45,8 @@ defmodule ExPwned.Passwords do
     [_suffix, count] =
       body
       |> parse_body()
-      |> Enum.find(["", "0"], &matches_suffix(&1, hash_suffix)) # default: ["", "0"]
+      # default: ["", "0"]
+      |> Enum.find(["", "0"], &matches_suffix(&1, hash_suffix))
 
     count |> String.to_integer()
   end
@@ -59,6 +62,6 @@ defmodule ExPwned.Passwords do
   end
 
   defp hash_sha1(word) do
-    :crypto.hash(:sha, word) |> Base.encode16
+    :crypto.hash(:sha, word) |> Base.encode16()
   end
 end

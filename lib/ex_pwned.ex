@@ -16,7 +16,7 @@ defmodule ExPwned do
       false
   """
   def breached?(account) do
-    case Breaches.breachedaccount(account, [truncateResponse: true]) do
+    case Breaches.breachedaccount(account, truncateResponse: true) do
       {:ok, result, _} when length(result) > 0 -> true
       {:ok, %{msg: "no breach was found for given input"}, _} -> false
     end
@@ -50,5 +50,4 @@ defmodule ExPwned do
   def password_breach_count(password) do
     Passwords.password_breach_count(password)
   end
-
 end

@@ -20,6 +20,11 @@ defmodule ExPwned.Parser do
       {:ok, %HTTPoison.Response{body: _, headers: _, status_code: 403}} ->
         {:error, "no user agent has been specified in the request", 403}
 
+      {:ok, %HTTPoison.Response{body: _, headers: headers, status_code: 429}} ->
+        m = Enum.into(headers, %{})
+        retry_seconds = Map.fetch!(m, "Retry-After")
+        {:ok, :retry, retry_seconds}
+
       {:ok, %HTTPoison.Response{body: body, headers: _, status_code: status}} ->
         {:error, body, status}
 

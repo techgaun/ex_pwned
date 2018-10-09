@@ -17,7 +17,7 @@ defmodule ExPwned do
   """
   def breached?(account) do
     case Breaches.breachedaccount(account, truncateResponse: true) do
-      {:ok, result, _} when length(result) > 0 ->
+      {:ok, [ _ | _ ], _} ->
         true
 
       {:ok, %{msg: "no breach was found for given input"}, _} ->

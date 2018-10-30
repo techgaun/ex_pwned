@@ -29,7 +29,8 @@ defmodule ExPwned.Mixfile do
       {:ex_doc, "~> 0.19", only: :dev},
       {:hackney, "~> 1.13", override: true},
       {:excoveralls, "~> 0.10.2", only: :test},
-      {:uuid, "~> 1.1", only: :test}
+      {:uuid, "~> 1.1", only: :test},
+      {:credo, "~> 0.10.2", only: [:dev, :test], runtime: false}
     ]
   end
 

@@ -24,7 +24,8 @@ defmodule ExPwned.Mixfile do
     [
       {:httpoison, "~> 0.9 or ~> 0.10"},
       {:poison, "~> 2.0 or ~> 3.0"},
-      {:ex_doc, "~> 0.19", only: :dev}
+      {:ex_doc, "~> 0.19", only: :dev},
+      {:uuid, "~> 1.1", only: :test}
     ]
   end
 

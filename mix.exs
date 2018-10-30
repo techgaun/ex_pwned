@@ -12,9 +12,7 @@ defmodule ExPwned.Mixfile do
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       docs: [extras: ["README.md"]],
-      deps: deps(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test]
+      deps: deps()
     ]
   end
 
@@ -27,8 +25,6 @@ defmodule ExPwned.Mixfile do
       {:httpoison, "~> 0.9 or ~> 0.10"},
       {:poison, "~> 2.0 or ~> 3.0"},
       {:ex_doc, "~> 0.19", only: :dev},
-      {:hackney, "~> 1.13", override: true},
-      {:excoveralls, "~> 0.10.2", only: :test},
       {:uuid, "~> 1.1", only: :test},
       {:credo, "~> 0.10.2", only: [:dev, :test], runtime: false}
     ]

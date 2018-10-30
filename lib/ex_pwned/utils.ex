@@ -8,5 +8,5 @@ defmodule ExPwned.Utils do
 
   def api_version, do: {"api-version", 2}
   def headers, do: [ua(), api_version()]
-  def base_url, do: "https://haveibeenpwned.com/api/"
+  def base_url, do: "https://haveibeenpwned.com/api"
 end

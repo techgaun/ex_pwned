@@ -24,7 +24,6 @@ defmodule ExPwned.PasswordsTest do
 
   test "parse_body/1" do
     body = "00387259BECFC8B3CB0D27EBDDC2AC93758:1\r\n00BA633D4B050924FA8228526CE0F561B38:3"
-    hash_suffix = "259BECFC8B3CB0D27EBDDC2AC93758"
 
     result = Passwords.parse_body(body)
     assert is_list(result)

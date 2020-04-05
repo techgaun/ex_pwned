@@ -4,7 +4,7 @@ defmodule ExPwned.Mixfile do
   def project do
     [
       app: :ex_pwned,
-      version: "0.1.4",
+      version: "0.2.0",
       elixir: "~> 1.3",
       description: "Elixir client for haveibeenpwned.com",
       source_url: "https://github.com/techgaun/ex_pwned",
@@ -22,8 +22,8 @@ defmodule ExPwned.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.9 or ~> 0.10"},
-      {:poison, "~> 2.0 or ~> 3.0"},
+      {:httpoison, ">= 0.9.0"},
+      {:jason, "~> 1.2", optional: true},
       {:ex_doc, "~> 0.19", only: :dev},
       {:uuid, "~> 1.1", only: :test},
       {:credo, "~> 0.10.2", only: [:dev, :test], runtime: false}

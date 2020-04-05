@@ -33,6 +33,13 @@ config :ex_pwned,
   user_agent: "ExMustang Slackbot"
 ```
 
+You can configure the json library to use for decoding body. By default, it is set to Jason.
+
+```elixir
+config :ex_pwned,
+  json_library: Poison
+```
+
 ## Usage
 
 Using `ExPwned` is simple.

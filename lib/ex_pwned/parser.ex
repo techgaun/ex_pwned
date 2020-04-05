@@ -3,6 +3,8 @@ defmodule ExPwned.Parser do
   Generic parser to parse all the api responses
   """
 
+  import ExPwned.Utils, only: [json_library: 0]
+
   @doc """
   Parses the response from hibp API calls
   """
@@ -39,7 +41,9 @@ defmodule ExPwned.Parser do
     end
   end
 
-  defp parse_success_response(body), do: body |> Poison.decode!()
+  defp parse_success_response(body) do
+    json_library().decode!(body)
+  end
 
   defp process_headers(headers) when is_list(headers) and length(headers) > 0 do
     {_, retry_after} = List.keyfind(headers, "Retry-After", 0, {nil, "0"})

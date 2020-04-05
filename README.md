@@ -34,6 +34,7 @@ config :ex_pwned,
 ```
 
 You can configure the json library to use for decoding body. By default, it is set to Jason.
+The json library is supposed to have implemented `decode!/1`.
 
 ```elixir
 config :ex_pwned,
